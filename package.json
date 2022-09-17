@@ -9,6 +9,11 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.10.4",
+    "@emotion/server": "^11.10.0",
+    "@mantine/core": "^5.3.3",
+    "@mantine/hooks": "^5.3.3",
+    "@mantine/next": "^5.3.3",
     "autoprefixer": "^10.4.11",
     "eslint-plugin-tailwindcss": "^3.6.1",
     "next": "12.2.5",
