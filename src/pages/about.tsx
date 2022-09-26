@@ -111,14 +111,18 @@ const about = () => {
   let f = "#000532";
 
   return (
-    <Progress
-      size="xl"
-      sections={[
-        { value: a, color: d },
-        { value: b, color: e },
-        { value: c, color: f },
-      ]}
-    />
+    <div className=" bg-green-200 m-auto w-20px">
+      <h1>title</h1>
+      <Progress
+        className="w-[200px] h-30px"
+        role={"w-20"}
+        sections={[
+          { value: a, color: d },
+          { value: b, color: e },
+          { value: c, color: f },
+        ]}
+      />
+    </div>
   );
 };
 
