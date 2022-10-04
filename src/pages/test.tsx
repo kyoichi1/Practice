@@ -1,20 +1,29 @@
+import {
+  ApolloClient,
+  createHttpLink,
+  InMemoryCache,
+  gql,
+} from "@apollo/client";
+import { setContext } from "@apollo/client/link/context";
 
-import { ApolloClient, createHttpLink, InMemoryCache, gql } from "@apollo/client";
-import { setContext } from '@apollo/client/link/context';
-
-
-
-const Home = ({pinnedItems}) =>{
+export default function Home({ pinnedItems }) {
   return (
-    <div>
-      {pinnedItems.totalCount.node.}
+    <div className="">
+      {pinnedItems.map((item) => {
+        return (
+          <a key={item.id} href={item.url}>
+            <h2>{item.name}</h2>
+            <p>⭐ {item.stargazers.totalCount}</p>
+          </a>
+        );
+      })}
     </div>
-  )
+  );
 }
 
 export async function getStaticProps() {
   const httpLink = createHttpLink({
-    uri: 'https://api.github.com/graphql',
+    uri: "https://api.github.com/graphql",
   });
 
   const authLink = setContext((_, { headers }) => {
@@ -22,13 +31,13 @@ export async function getStaticProps() {
       headers: {
         ...headers,
         authorization: `Bearer ${process.env.GITHUB_ACCESS_TOKEN}`,
-      }
-    }
+      },
+    };
   });
 
   const client = new ApolloClient({
     link: authLink.concat(httpLink),
-    cache: new InMemoryCache()
+    cache: new InMemoryCache(),
   });
 
   const { data } = await client.query({
@@ -52,14 +61,15 @@ export async function getStaticProps() {
           }
         }
       }
-    `
+    `,
   });
 
   const { user } = data;
-  const pinnedItems = user.pinnedItems.edges.map(edge => edge.node);
+  const pinnedItems = user.pinnedItems.edges.map((edge) => edge.node);
 
   return {
     props: {
-      pinnedItems
-    }
-  }
+      pinnedItems,
+    },
+  };
+}
