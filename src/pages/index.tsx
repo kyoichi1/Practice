@@ -10,31 +10,6 @@ import {
 import { setContext } from "@apollo/client/link/context";
 import { FC } from "react";
 
-export type Props = {
-  first: number;
-  totalCount: number;
-  edges: {
-    node: {
-      Repository: {
-        name: string;
-        id: string;
-        url: string;
-        primaryLanguage: {
-          id: string;
-          color: string;
-          name: string;
-        };
-        stargazers: {
-          totalCount: number;
-        };
-        forks: {
-          totalCount: number;
-        };
-      };
-    };
-  };
-}[];
-
 const Home: FC<Props> = ({ pinnedItems }) => {
   // const id = pinnedItems.id;
   // const first = pinnedItems.first;
