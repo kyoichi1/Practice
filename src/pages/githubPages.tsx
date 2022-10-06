@@ -98,22 +98,6 @@ export async function getStaticProps() {
     `,
   });
 
-  // languages(first: 10) {
-  //   edges {
-  //     node {
-  //       id
-  //       color
-  //       name
-  //     }
-  //     size
-  //   }
-  // }
-  // forks {
-  //   totalCount
-  // }
-  // description
-  // stargazerCount
-
   const { user } = data;
   const pinnedItems = user.pinnedItems.edges.map((edge) => edge.node);
 
