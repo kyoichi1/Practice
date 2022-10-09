@@ -1,5 +1,10 @@
 import React from "react";
 
-export const ts = () => {
-  return <div>ts</div>;
+export const TypeScript = () => {
+  return (
+    <div>
+      <h1>TypeScript</h1>
+      <input></input>
+    </div>
+  );
 };
