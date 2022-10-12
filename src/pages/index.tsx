@@ -8,9 +8,10 @@ import {
   NormalizedCacheObject,
 } from "@apollo/client";
 import { setContext } from "@apollo/client/link/context";
-import { FC } from "react";
+import { NextPage } from "next";
+import { Props } from "next/script";
 
-const Home: FC<Props> = ({ pinnedItems }) => {
+const Home: NextPage<Props> = ({ pinnedItems }) => {
   // const id = pinnedItems.id;
   // const first = pinnedItems.first;
   return (
